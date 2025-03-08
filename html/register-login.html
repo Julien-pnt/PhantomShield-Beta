@@ -69,112 +69,120 @@
                         </div>
                         <a href="#" class="forgot-password">Mot de passe oublié?</a>
                     </div>
-                    <button type="submit" class="btn-login-register">Se connecter</button>
+                    <button type="submit" class="btn-login-register">Connexion</button>
+                    <div class="form-divider">
+                        <span>ou</span>
+                    </div>
+                    <div class="social-login">
+                        <button type="button" class="btn-social google">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="btn-social linkedin">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
+                        </button>
+                    </div>
                 </form>
                 
-                <!-- Register Form -->
-                <div class="form-content" id="register-form">
-                    <div class="account-type-tabs">
-                        <div class="form-tab active" data-account="particulier">Particulier</div>
-                        <div class="form-tab" data-account="professionnel">Professionnel</div>
+                <!-- Register Forms Container -->
+                <div class="form-content" id="register-container">
+                    <div class="register-options">
+                        <button class="register-option active" data-form="particulier-form">Particulier</button>
+                        <button class="register-option" data-form="professionnel-form">Professionnel</button>
                     </div>
                     
-                    <!-- Particulier Registration -->
-                    <form class="account-form active" id="particulier-form">
+                    <!-- Particulier Registration Form -->
+                    <form class="register-form active" id="particulier-form">
                         <div class="form-group">
-                            <label for="register-firstname">Prénom</label>
+                            <label for="part-first-name">Prénom</label>
                             <i class="fas fa-user form-icon"></i>
-                            <input type="text" id="register-firstname" name="first_name" class="form-control" placeholder="Entrez votre prénom" required>
+                            <input type="text" id="part-first-name" name="first_name" class="form-control" placeholder="Votre prénom" required>
                         </div>
                         <div class="form-group">
-                            <label for="register-lastname">Nom</label>
+                            <label for="part-last-name">Nom</label>
                             <i class="fas fa-user form-icon"></i>
-                            <input type="text" id="register-lastname" name="last_name" class="form-control" placeholder="Entrez votre nom" required>
+                            <input type="text" id="part-last-name" name="last_name" class="form-control" placeholder="Votre nom" required>
                         </div>
                         <div class="form-group">
-                            <label for="register-email">Email</label>
+                            <label for="part-email">Email</label>
                             <i class="fas fa-envelope form-icon"></i>
-                            <input type="email" id="register-email" name="email" class="form-control" placeholder="Entrez votre email" required>
+                            <input type="email" id="part-email" name="email" class="form-control" placeholder="Votre email" required>
                         </div>
                         <div class="form-group">
-                            <label for="register-phone">Téléphone</label>
+                            <label for="part-phone">Téléphone</label>
                             <i class="fas fa-phone form-icon"></i>
-                            <input type="tel" id="register-phone" name="phone" class="form-control" placeholder="Entrez votre téléphone">
+                            <input type="tel" id="part-phone" name="phone" class="form-control" placeholder="Votre numéro de téléphone" required>
                         </div>
                         <div class="form-group">
-                            <label for="register-password">Mot de passe</label>
+                            <label for="part-password">Mot de passe</label>
                             <i class="fas fa-lock form-icon"></i>
-                            <input type="password" id="register-password" name="password" class="form-control" placeholder="Créez un mot de passe" required minlength="8">
+                            <input type="password" id="part-password" name="password" class="form-control" placeholder="Créez un mot de passe" required>
                             <i class="fas fa-eye password-toggle"></i>
-                            <div class="invalid-feedback">Le mot de passe doit contenir au moins 8 caractères</div>
+                            <div class="password-strength">
+                                <div class="strength-bar"></div>
+                                <div class="strength-label">Force: <span>Faible</span></div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="register-confirm">Confirmer le mot de passe</label>
+                            <label for="part-confirm">Confirmer mot de passe</label>
                             <i class="fas fa-lock form-icon"></i>
-                            <input type="password" id="register-confirm" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe" required>
+                            <input type="password" id="part-confirm" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe" required>
                             <i class="fas fa-eye password-toggle"></i>
                             <div class="invalid-feedback">Les mots de passe ne correspondent pas</div>
                         </div>
                         <div class="form-footer">
                             <div class="remember-me">
-                                <input type="checkbox" id="terms" name="terms" required>
-                                <label for="terms">J'accepte les <a href="#">conditions d'utilisation</a></label>
+                                <input type="checkbox" id="part-terms" name="terms" required>
+                                <label for="part-terms">J'accepte les <a href="#">conditions d'utilisation</a></label>
                             </div>
                         </div>
                         <input type="hidden" name="user_type" value="particulier">
-                        <button type="submit" class="btn-login-register">Créer mon compte</button>
+                        <button type="submit" class="btn-login-register">Créer un compte</button>
                     </form>
                     
-                    <!-- Professionnel Registration -->
-                    <form class="account-form" id="professionnel-form">
+                    <!-- Professionnel Registration Form -->
+                    <form class="register-form" id="professionnel-form">
+                        <div class="form-group">
+                            <label for="pro-first-name">Prénom</label>
+                            <i class="fas fa-user form-icon"></i>
+                            <input type="text" id="pro-first-name" name="first_name" class="form-control" placeholder="Votre prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-last-name">Nom</label>
+                            <i class="fas fa-user form-icon"></i>
+                            <input type="text" id="pro-last-name" name="last_name" class="form-control" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-email">Email professionnel</label>
+                            <i class="fas fa-envelope form-icon"></i>
+                            <input type="email" id="pro-email" name="email" class="form-control" placeholder="Votre email professionnel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-phone">Téléphone</label>
+                            <i class="fas fa-phone form-icon"></i>
+                            <input type="tel" id="pro-phone" name="phone" class="form-control" placeholder="Votre numéro de téléphone" required>
+                        </div>
                         <div class="form-group">
                             <label for="company-name">Nom de l'entreprise</label>
                             <i class="fas fa-building form-icon"></i>
-                            <input type="text" id="company-name" name="company_name" class="form-control" placeholder="Entrez le nom de votre entreprise" required>
+                            <input type="text" id="company-name" name="company_name" class="form-control" placeholder="Nom de votre entreprise" required>
                         </div>
                         <div class="form-group">
-                            <label for="siret">SIRET</label>
+                            <label for="siret">Numéro SIRET</label>
                             <i class="fas fa-id-card form-icon"></i>
-                            <input type="text" id="siret" name="siret" class="form-control" placeholder="Entrez votre numéro SIRET" required pattern="[0-9]{14}">
-                            <div class="invalid-feedback">Veuillez entrer un SIRET valide (14 chiffres)</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-name">Nom du contact principal</label>
-                            <i class="fas fa-user form-icon"></i>
-                            <input type="text" id="contact-name" name="contact_name" class="form-control" placeholder="Entrez le nom du contact principal" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company-email">Email professionnel</label>
-                            <i class="fas fa-envelope form-icon"></i>
-                            <input type="email" id="company-email" name="email" class="form-control" placeholder="Entrez votre email professionnel" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company-tel">Téléphone professionnel</label>
-                            <i class="fas fa-phone form-icon"></i>
-                            <input type="tel" id="company-tel" name="phone" class="form-control" placeholder="Entrez votre téléphone professionnel">
-                        </div>
-                        <div class="form-group">
-                            <label for="secteur">Secteur d'activité</label>
-                            <i class="fas fa-briefcase form-icon"></i>
-                            <select id="secteur" name="secteur" class="form-control" required>
-                                <option value="">Sélectionnez votre secteur d'activité</option>
-                                <option value="finance">Finance & Banque</option>
-                                <option value="sante">Santé</option>
-                                <option value="industrie">Industrie</option>
-                                <option value="commerce">Commerce</option>
-                                <option value="tech">Technologie</option>
-                                <option value="autre">Autre</option>
-                            </select>
+                            <input type="text" id="siret" name="siret" class="form-control" placeholder="Numéro SIRET" required>
                         </div>
                         <div class="form-group">
                             <label for="pro-password">Mot de passe</label>
                             <i class="fas fa-lock form-icon"></i>
-                            <input type="password" id="pro-password" name="password" class="form-control" placeholder="Créez un mot de passe" required minlength="8">
+                            <input type="password" id="pro-password" name="password" class="form-control" placeholder="Créez un mot de passe" required>
                             <i class="fas fa-eye password-toggle"></i>
-                            <div class="invalid-feedback">Le mot de passe doit contenir au moins 8 caractères</div>
+                            <div class="password-strength">
+                                <div class="strength-bar"></div>
+                                <div class="strength-label">Force: <span>Faible</span></div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="pro-confirm">Confirmer le mot de passe</label>
+                            <label for="pro-confirm">Confirmer mot de passe</label>
                             <i class="fas fa-lock form-icon"></i>
                             <input type="password" id="pro-confirm" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe" required>
                             <i class="fas fa-eye password-toggle"></i>
@@ -229,5 +237,6 @@
     
     <!-- Scripts -->
     <script src="../js/auth.js"></script>
+    <script src="../js/register-login.js"></script>
 </body>
 </html>
