@@ -9,6 +9,95 @@
     <link rel="stylesheet" href="../css/auth-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="../img/logo-casque.png" type="image/x-icon">
+    <style>
+        /* Styles spécifiques pour les boutons d'options d'inscription */
+        .account-options {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .account-option {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .account-option:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .account-option.active {
+            background: linear-gradient(135deg, rgba(231, 29, 54, 0.1) 0%, rgba(107, 45, 144, 0.1) 100%);
+            border: 2px solid transparent;
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            position: relative;
+        }
+        
+        .account-option.active::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-bg);
+            z-index: -1;
+            border-radius: 8px;
+            opacity: 0.7;
+        }
+        
+        .account-option i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-red);
+            display: block;
+        }
+        
+        .account-option.active i,
+        .account-option.active h3 {
+            background: var(--gradient-bg);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .account-option h3 {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .account-option p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .account-option.active p {
+            opacity: 0.9;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--gradient-bg);
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -69,48 +158,48 @@
                         </div>
                         <a href="#" class="forgot-password">Mot de passe oublié?</a>
                     </div>
-                    <button type="submit" class="btn-login-register">Connexion</button>
-                    <div class="form-divider">
-                        <span>ou</span>
-                    </div>
-                    <div class="social-login">
-                        <button type="button" class="btn-social google">
-                            <i class="fab fa-google"></i> Google
-                        </button>
-                        <button type="button" class="btn-social linkedin">
-                            <i class="fab fa-linkedin-in"></i> LinkedIn
-                        </button>
-                    </div>
+                    <button type="submit" class="btn-login-register">Se connecter</button>
                 </form>
                 
-                <!-- Register Forms Container -->
+                <!-- Register Container -->
                 <div class="form-content" id="register-container">
-                    <div class="register-options">
-                        <button class="register-option active" data-form="particulier-form">Particulier</button>
-                        <button class="register-option" data-form="professionnel-form">Professionnel</button>
+                    <h3>Choisissez le type de compte</h3>
+                    
+                    <div class="account-options">
+                        <div class="account-option active" data-form="particulier-form">
+                            <i class="fas fa-user"></i>
+                            <h3>Particulier</h3>
+                            <p>Pour les utilisateurs individuels souhaitant protéger leurs données personnelles.</p>
+                        </div>
+                        <div class="account-option" data-form="professionnel-form">
+                            <i class="fas fa-building"></i>
+                            <h3>Professionnel</h3>
+                            <p>Pour les entreprises nécessitant des solutions de cybersécurité avancées.</p>
+                            <span class="badge">PRO</span>
+                        </div>
                     </div>
                     
                     <!-- Particulier Registration Form -->
-                    <form class="register-form active" id="particulier-form">
+                    <form class="account-form active" id="particulier-form">
                         <div class="form-group">
-                            <label for="part-first-name">Prénom</label>
+                            <label for="part-firstname">Prénom</label>
                             <i class="fas fa-user form-icon"></i>
-                            <input type="text" id="part-first-name" name="first_name" class="form-control" placeholder="Votre prénom" required>
+                            <input type="text" id="part-firstname" name="first_name" class="form-control" placeholder="Entrez votre prénom" required>
                         </div>
                         <div class="form-group">
-                            <label for="part-last-name">Nom</label>
+                            <label for="part-lastname">Nom</label>
                             <i class="fas fa-user form-icon"></i>
-                            <input type="text" id="part-last-name" name="last_name" class="form-control" placeholder="Votre nom" required>
+                            <input type="text" id="part-lastname" name="last_name" class="form-control" placeholder="Entrez votre nom" required>
                         </div>
                         <div class="form-group">
                             <label for="part-email">Email</label>
                             <i class="fas fa-envelope form-icon"></i>
-                            <input type="email" id="part-email" name="email" class="form-control" placeholder="Votre email" required>
+                            <input type="email" id="part-email" name="email" class="form-control" placeholder="Entrez votre email" required>
                         </div>
                         <div class="form-group">
                             <label for="part-phone">Téléphone</label>
                             <i class="fas fa-phone form-icon"></i>
-                            <input type="tel" id="part-phone" name="phone" class="form-control" placeholder="Votre numéro de téléphone" required>
+                            <input type="tel" id="part-phone" name="phone" class="form-control" placeholder="Entrez votre numéro de téléphone">
                         </div>
                         <div class="form-group">
                             <label for="part-password">Mot de passe</label>
@@ -118,12 +207,14 @@
                             <input type="password" id="part-password" name="password" class="form-control" placeholder="Créez un mot de passe" required>
                             <i class="fas fa-eye password-toggle"></i>
                             <div class="password-strength">
-                                <div class="strength-bar"></div>
-                                <div class="strength-label">Force: <span>Faible</span></div>
+                                <div class="strength-bar">
+                                    <div class="strength-fill"></div>
+                                </div>
+                                <div class="strength-text"></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="part-confirm">Confirmer mot de passe</label>
+                            <label for="part-confirm">Confirmer le mot de passe</label>
                             <i class="fas fa-lock form-icon"></i>
                             <input type="password" id="part-confirm" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe" required>
                             <i class="fas fa-eye password-toggle"></i>
@@ -136,40 +227,45 @@
                             </div>
                         </div>
                         <input type="hidden" name="user_type" value="particulier">
-                        <button type="submit" class="btn-login-register">Créer un compte</button>
+                        <button type="submit" class="btn-login-register">Créer un compte personnel</button>
                     </form>
                     
                     <!-- Professionnel Registration Form -->
-                    <form class="register-form" id="professionnel-form">
+                    <form class="account-form" id="professionnel-form">
                         <div class="form-group">
-                            <label for="pro-first-name">Prénom</label>
-                            <i class="fas fa-user form-icon"></i>
-                            <input type="text" id="pro-first-name" name="first_name" class="form-control" placeholder="Votre prénom" required>
+                            <label for="pro-company">Nom de l'entreprise</label>
+                            <i class="fas fa-building form-icon"></i>
+                            <input type="text" id="pro-company" name="company_name" class="form-control" placeholder="Entrez le nom de votre entreprise" required>
                         </div>
                         <div class="form-group">
-                            <label for="pro-last-name">Nom</label>
+                            <label for="pro-siret">SIRET</label>
+                            <i class="fas fa-id-card form-icon"></i>
+                            <input type="text" id="pro-siret" name="siret" class="form-control" placeholder="Entrez votre numéro SIRET" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-firstname">Prénom du contact</label>
                             <i class="fas fa-user form-icon"></i>
-                            <input type="text" id="pro-last-name" name="last_name" class="form-control" placeholder="Votre nom" required>
+                            <input type="text" id="pro-firstname" name="first_name" class="form-control" placeholder="Entrez votre prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-lastname">Nom du contact</label>
+                            <i class="fas fa-user form-icon"></i>
+                            <input type="text" id="pro-lastname" name="last_name" class="form-control" placeholder="Entrez votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-position">Fonction dans l'entreprise</label>
+                            <i class="fas fa-briefcase form-icon"></i>
+                            <input type="text" id="pro-position" name="position" class="form-control" placeholder="Votre fonction dans l'entreprise" required>
                         </div>
                         <div class="form-group">
                             <label for="pro-email">Email professionnel</label>
                             <i class="fas fa-envelope form-icon"></i>
-                            <input type="email" id="pro-email" name="email" class="form-control" placeholder="Votre email professionnel" required>
+                            <input type="email" id="pro-email" name="email" class="form-control" placeholder="Entrez votre email professionnel" required>
                         </div>
                         <div class="form-group">
-                            <label for="pro-phone">Téléphone</label>
+                            <label for="pro-phone">Téléphone professionnel</label>
                             <i class="fas fa-phone form-icon"></i>
-                            <input type="tel" id="pro-phone" name="phone" class="form-control" placeholder="Votre numéro de téléphone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company-name">Nom de l'entreprise</label>
-                            <i class="fas fa-building form-icon"></i>
-                            <input type="text" id="company-name" name="company_name" class="form-control" placeholder="Nom de votre entreprise" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="siret">Numéro SIRET</label>
-                            <i class="fas fa-id-card form-icon"></i>
-                            <input type="text" id="siret" name="siret" class="form-control" placeholder="Numéro SIRET" required>
+                            <input type="tel" id="pro-phone" name="phone" class="form-control" placeholder="Entrez votre numéro de téléphone">
                         </div>
                         <div class="form-group">
                             <label for="pro-password">Mot de passe</label>
@@ -177,12 +273,14 @@
                             <input type="password" id="pro-password" name="password" class="form-control" placeholder="Créez un mot de passe" required>
                             <i class="fas fa-eye password-toggle"></i>
                             <div class="password-strength">
-                                <div class="strength-bar"></div>
-                                <div class="strength-label">Force: <span>Faible</span></div>
+                                <div class="strength-bar">
+                                    <div class="strength-fill"></div>
+                                </div>
+                                <div class="strength-text"></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="pro-confirm">Confirmer mot de passe</label>
+                            <label for="pro-confirm">Confirmer le mot de passe</label>
                             <i class="fas fa-lock form-icon"></i>
                             <input type="password" id="pro-confirm" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe" required>
                             <i class="fas fa-eye password-toggle"></i>
@@ -237,6 +335,166 @@
     
     <!-- Scripts -->
     <script src="../js/auth.js"></script>
-    <script src="../js/register-login.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sélections des éléments du DOM
+            const formTabs = document.querySelectorAll('.form-tab');
+            const formContents = document.querySelectorAll('.form-content');
+            const accountOptions = document.querySelectorAll('.account-option');
+            const accountForms = document.querySelectorAll('.account-form');
+            const passwordToggles = document.querySelectorAll('.password-toggle');
+            
+            // Gestion des onglets (Connexion / Inscription)
+            formTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    formTabs.forEach(t => t.classList.remove('active'));
+                    formContents.forEach(c => c.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    if(targetTab === 'login') {
+                        document.getElementById('login-form').classList.add('active');
+                    } else if(targetTab === 'register') {
+                        document.getElementById('register-container').classList.add('active');
+                    }
+                });
+            });
+            
+            // Gestion des options d'inscription (Particulier / Professionnel)
+            accountOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    accountOptions.forEach(o => o.classList.remove('active'));
+                    accountForms.forEach(f => f.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const targetForm = this.getAttribute('data-form');
+                    document.getElementById(targetForm).classList.add('active');
+                });
+            });
+            
+            // Affichage/masquage des mots de passe
+            passwordToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const passwordInput = this.previousElementSibling;
+                    
+                    if(passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        this.classList.remove('fa-eye');
+                        this.classList.add('fa-eye-slash');
+                    } else {
+                        passwordInput.type = 'password';
+                        this.classList.remove('fa-eye-slash');
+                        this.classList.add('fa-eye');
+                    }
+                });
+            });
+            
+            // Vérification de la force du mot de passe
+            const passwordInputs = document.querySelectorAll('input[name="password"]');
+            passwordInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const parent = this.parentElement;
+                    const strengthBar = parent.querySelector('.strength-fill');
+                    const strengthText = parent.querySelector('.strength-text');
+                    const password = this.value;
+                    
+                    // Évaluer la force du mot de passe
+                    let strength = 0;
+                    
+                    // Longueur minimum
+                    if (password.length >= 8) strength += 25;
+                    
+                    // Présence de lettres minuscules et majuscules
+                    if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength += 25;
+                    
+                    // Présence de chiffres
+                    if (/[0-9]/.test(password)) strength += 25;
+                    
+                    // Présence de caractères spéciaux
+                    if (/[^a-zA-Z0-9]/.test(password)) strength += 25;
+                    
+                    // Mise à jour visuelle
+                    strengthBar.style.width = strength + '%';
+                    
+                    if (strength < 25) {
+                        strengthBar.style.backgroundColor = '#e71d36';
+                        strengthText.textContent = 'Très faible';
+                    } else if (strength < 50) {
+                        strengthBar.style.backgroundColor = '#ff9f1c';
+                        strengthText.textContent = 'Faible';
+                    } else if (strength < 75) {
+                        strengthBar.style.backgroundColor = '#2ec4b6';
+                        strengthText.textContent = 'Moyen';
+                    } else {
+                        strengthBar.style.backgroundColor = '#28a745';
+                        strengthText.textContent = 'Fort';
+                    }
+                });
+            });
+            
+            // Vérification de correspondance des mots de passe
+            const confirmInputs = document.querySelectorAll('input[name="confirm_password"]');
+            confirmInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const form = this.closest('form');
+                    const password = form.querySelector('input[name="password"]').value;
+                    const confirmPassword = this.value;
+                    const feedbackElement = this.nextElementSibling.nextElementSibling;
+                    
+                    if (password !== confirmPassword) {
+                        this.classList.add('is-invalid');
+                        feedbackElement.style.display = 'block';
+                    } else {
+                        this.classList.remove('is-invalid');
+                        feedbackElement.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Gestion des soumissions de formulaires
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Récupération des données du formulaire
+                    const formData = new FormData(this);
+                    
+                    // Affichage d'un message de chargement
+                    const messageContainer = document.getElementById('messageContainer');
+                    messageContainer.innerHTML = '<div class="message loading">Traitement en cours...</div>';
+                    messageContainer.style.display = 'block';
+                    
+                    // Déterminer le type de formulaire (login ou register)
+                    const isLoginForm = this.id === 'login-form';
+                    const endpoint = isLoginForm ? '../public/api/login.php' : '../public/api/register.php';
+                    
+                    // Envoi des données via fetch API
+                    fetch(endpoint, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            messageContainer.innerHTML = '<div class="message success">' + data.message + '</div>';
+                            
+                            // Redirection après un délai en cas de succès
+                            setTimeout(() => {
+                                window.location.href = data.redirect || '../dashboard/index.php';
+                            }, 1500);
+                        } else {
+                            messageContainer.innerHTML = '<div class="message error">' + data.message + '</div>';
+                        }
+                    })
+                    .catch(error => {
+                        messageContainer.innerHTML = '<div class="message error">Une erreur s\'est produite. Veuillez réessayer.</div>';
+                        console.error('Error:', error);
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
