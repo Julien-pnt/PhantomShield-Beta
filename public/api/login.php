@@ -69,9 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             setcookie('user_id', $user['id'], $expires, '/', '', false, true);
         }
         
+        // Ajouter une URL de redirection
         echo json_encode([
             'success' => true, 
-            'message' => 'Connexion réussie! Redirection...'
+            'message' => 'Connexion réussie! Redirection...',
+            'redirect' => '../dashboard/index.php'  // Ajout de l'URL de redirection
         ]);
         
     } catch (PDOException $e) {
