@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhantomShield - Connexion & Inscription</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/register-login.css">
+    <link rel="stylesheet" href="../css/auth-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="../img/logo-casque.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="../img/logo-casque.png" alt="PhantomShield Logo">
+                <h2 class="nomEntreprise">PhantomShield</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="/#purple-team">Purple Team</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/html/offers.html">Offres</a></li>
+                <li><a href="/#features">Avantages</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                <li><a href="/html/register-login.html" class="btn-primary">Espace Client</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Login/Register Section -->
+    <section class="login-register-container">
+        <div class="login-register-card">
+            <div class="login-register-image">
+                <img src="../img/logo-casque.png" alt="PhantomShield Logo">
+                <h2>Bienvenue chez PhantomShield</h2>
+                <p>Votre partenaire de confiance en cybersécurité offensive et défensive. Accédez à votre espace client pour gérer vos services et suivre vos rapports de sécurité.</p>
+            </div>
+            <div class="login-register-form">
+                <h2>Espace <span>Client</span></h2>
+                
+                <!-- Conteneur pour les messages -->
+                <div class="message-container" id="messageContainer"></div>
+                
+                <div class="form-tabs">
+                    <div class="form-tab active" data-tab="login">Connexion</div>
+                    <div class="form-tab" data-tab="register">Inscription</div>
+                </div>
+                
+                <!-- Login Form -->
+                <form class="form-content active" id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <i class="fas fa-envelope form-icon"></i>
+                        <input type="email" id="login-email" name="email" class="form-control" placeholder="Entrez votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Mot de passe</label>
+                        <i class="fas fa-lock form-icon"></i>
+                        <input type="password" id="login-password" name="password" class="form-control" placeholder="Entrez votre mot de passe" required>
+                        <i class="fas fa-eye password-toggle"></i>
+                    </div>
+                    <div class="form-footer">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Se souvenir de moi</label>
+                        </div>
+                        <a href="#" class="forgot-password">Mot de passe oublié?</a>
+                    </div>
+                    <button type="submit" class="btn-login-register">Se connecter</button>
+                </form>
+                
+                <!-- Register Form -->
+                <div class="form-content" id="register-form">
+                    <div class="account-type-tabs">
+                        <div class="form-tab active" data-account="particulier">Particulier</div>
+                        <div class="form-tab" data-account="professionnel">Professionnel</div>
+                    </div>
+                    
+                    <!-- Particulier Registration -->
+                    <form class="account-form active" id="particulier-form">
+                        <div class="form-group">
+                            <label for="register-firstname">Prénom</label>
+                            <i class="fas fa-user form-icon"></i>
+                            <input type="text" id="register-firstname" name="first_name" class="form-control" placeholder="Entrez votre prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-lastname">Nom</label>
+                            <i class="fas fa-user form-icon"></i>
+                            <input type="text" id="register-lastname" name="last_name" class="form-control" placeholder="Entrez votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <i class="fas fa-envelope form-icon"></i>
+                            <input type="email" id="register-email" name="email" class="form-control" placeholder="Entrez votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-phone">Téléphone</label>
+                            <i class="fas fa-phone form-icon"></i>
+                            <input type="tel" id="register-phone" name="phone" class="form-control" placeholder="Entrez votre téléphone">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Mot de passe</label>
+                            <i class="fas fa-lock form-icon"></i>
+                            <input type="password" id="register-password" name="password" class="form-control" placeholder="Créez un mot de passe" required minlength="8">
+                            <i class="fas fa-eye password-toggle"></i>
+                            <div class="invalid-feedback">Le mot de passe doit contenir au moins 8 caractères</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm">Confirmer le mot de passe</label>
+                            <i class="fas fa-lock form-icon"></i>
+                            <input type="password" id="register-confirm" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe" required>
+                            <i class="fas fa-eye password-toggle"></i>
+                            <div class="invalid-feedback">Les mots de passe ne correspondent pas</div>
+                        </div>
+                        <div class="form-footer">
+                            <div class="remember-me">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">J'accepte les <a href="#">conditions d'utilisation</a></label>
+                            </div>
+                        </div>
+                        <input type="hidden" name="user_type" value="particulier">
+                        <button type="submit" class="btn-login-register">Créer mon compte</button>
+                    </form>
+                    
+                    <!-- Professionnel Registration -->
+                    <form class="account-form" id="professionnel-form">
+                        <div class="form-group">
+                            <label for="company-name">Nom de l'entreprise</label>
+                            <i class="fas fa-building form-icon"></i>
+                            <input type="text" id="company-name" name="company_name" class="form-control" placeholder="Entrez le nom de votre entreprise" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="siret">SIRET</label>
+                            <i class="fas fa-id-card form-icon"></i>
+                            <input type="text" id="siret" name="siret" class="form-control" placeholder="Entrez votre numéro SIRET" required pattern="[0-9]{14}">
+                            <div class="invalid-feedback">Veuillez entrer un SIRET valide (14 chiffres)</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-name">Nom du contact principal</label>
+                            <i class="fas fa-user form-icon"></i>
+                            <input type="text" id="contact-name" name="contact_name" class="form-control" placeholder="Entrez le nom du contact principal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-email">Email professionnel</label>
+                            <i class="fas fa-envelope form-icon"></i>
+                            <input type="email" id="company-email" name="email" class="form-control" placeholder="Entrez votre email professionnel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-tel">Téléphone professionnel</label>
+                            <i class="fas fa-phone form-icon"></i>
+                            <input type="tel" id="company-tel" name="phone" class="form-control" placeholder="Entrez votre téléphone professionnel">
+                        </div>
+                        <div class="form-group">
+                            <label for="secteur">Secteur d'activité</label>
+                            <i class="fas fa-briefcase form-icon"></i>
+                            <select id="secteur" name="secteur" class="form-control" required>
+                                <option value="">Sélectionnez votre secteur d'activité</option>
+                                <option value="finance">Finance & Banque</option>
+                                <option value="sante">Santé</option>
+                                <option value="industrie">Industrie</option>
+                                <option value="commerce">Commerce</option>
+                                <option value="tech">Technologie</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-password">Mot de passe</label>
+                            <i class="fas fa-lock form-icon"></i>
+                            <input type="password" id="pro-password" name="password" class="form-control" placeholder="Créez un mot de passe" required minlength="8">
+                            <i class="fas fa-eye password-toggle"></i>
+                            <div class="invalid-feedback">Le mot de passe doit contenir au moins 8 caractères</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pro-confirm">Confirmer le mot de passe</label>
+                            <i class="fas fa-lock form-icon"></i>
+                            <input type="password" id="pro-confirm" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe" required>
+                            <i class="fas fa-eye password-toggle"></i>
+                            <div class="invalid-feedback">Les mots de passe ne correspondent pas</div>
+                        </div>
+                        <div class="form-footer">
+                            <div class="remember-me">
+                                <input type="checkbox" id="pro-terms" name="terms" required>
+                                <label for="pro-terms">J'accepte les <a href="#">conditions d'utilisation</a></label>
+                            </div>
+                        </div>
+                        <input type="hidden" name="user_type" value="professionnel">
+                        <button type="submit" class="btn-login-register">Créer un compte professionnel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../img/logo-casque.png" alt="PhantomShield Logo">
+                    <p>PhantomShield combine expertise Red Team et Blue Team pour une cybersécurité complète.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Liens rapides</h3>
+                        <ul>
+                            <li><a href="../index.html">Accueil</a></li>
+                            <li><a href="/#services">Services</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Red Team</a></li>
+                            <li><a href="#">Blue Team</a></li>
+                            <li><a href="#">Purple Team</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PhantomShield. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="../js/auth.js"></script>
+</body>
+</html>

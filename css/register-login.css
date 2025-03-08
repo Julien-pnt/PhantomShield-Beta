@@ -1,0 +1,360 @@
+/* ==================== */
+/* LOGIN & REGISTER STYLES */
+/* ==================== */
+
+.login-register-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: radial-gradient(ellipse at center, var(--dark-bg) 0%, var(--darker-bg) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-register-container::before, .login-register-container::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--gradient-bg);
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.login-register-container::before {
+    top: -150px;
+    left: -150px;
+}
+
+.login-register-container::after {
+    bottom: -150px;
+    right: -150px;
+}
+
+.login-register-card {
+    background: rgba(30, 26, 43, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1;
+}
+
+.login-register-image {
+    flex: 1;
+    background: var(--gradient-bg);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-text);
+}
+
+.login-register-image img {
+    width: 120px;
+    margin-bottom: 30px;
+}
+
+.login-register-image h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.login-register-image p {
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.login-register-form {
+    flex: 1;
+    padding: 40px;
+}
+
+.login-register-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.login-register-form h2 span {
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.form-tab.active {
+    opacity: 1;
+    border-bottom: 2px solid var(--primary-purple);
+}
+
+.form-tab:hover {
+    opacity: 1;
+}
+
+.form-content {
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.form-content.active {
+    display: block;
+    opacity: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: var(--light-text);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(107, 45, 144, 0.1);
+}
+
+.form-icon {
+    position: absolute;
+    top: 42px;
+    left: 15px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.password-toggle {
+    position: absolute;
+    top: 42px;
+    right: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 10px;
+}
+
+.forgot-password {
+    color: var(--light-text);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.forgot-password:hover {
+    opacity: 1;
+}
+
+.form-footer a, .remember-me label a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-footer a:hover, .remember-me label a:hover {
+    color: var(--primary-red);
+}
+
+.social-login {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-login p {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.social-login p::before, .social-login p::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.social-login p::before {
+    left: 0;
+}
+
+.social-login p::after {
+    right: 0;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.social-btn:hover {
+    background: var(--gradient-bg);
+}
+
+.social-btn i {
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.social-btn:hover i {
+    transform: scale(1.2);
+}
+
+.btn-login-register {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: var(--gradient-bg);
+    color: var(--light-text);
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
+}
+
+.btn-login-register:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-login-register:active {
+    transform: translateY(1px);
+}
+
+/* Style personnalisé pour les checkbox */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+    background: var(--gradient-bg);
+    border-color: transparent;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Account type tabs */
+.account-type-tabs {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.account-form {
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.account-form.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Amélioration du style de sélection */
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .login-register-card {
+        flex-direction: column;
+        max-width: 500px;
+    }
+
+    .login-register-image {
+        padding: 30px;
+    }
+}
