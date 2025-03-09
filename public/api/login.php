@@ -3,7 +3,7 @@
 session_start();
 
 // Inclure la configuration de la base de données
-require_once '../config/config.php';
+require_once '../../config/db.php';
 
 // Définir le type de contenu pour la réponse en JSON
 header('Content-Type: application/json');
